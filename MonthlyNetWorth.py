@@ -9,7 +9,7 @@ class MonthlyNetWorth:
         self.assets = previous_assets
         self.liabilities = previous_liabilities
 
-    # returns sum of balance of assets
+    # returns net assets
     def sum_assets(self):
         total_assets = 0
 
@@ -18,7 +18,7 @@ class MonthlyNetWorth:
 
         return total_assets
 
-    # returns sum of balance of liabilities
+    # returns net liabilities
     def sum_liabilities(self):
         total_liabilities = 0
 
@@ -27,16 +27,24 @@ class MonthlyNetWorth:
 
         return total_liabilities
 
-    # calculates net worth
+    # calculates and returns net worth
     def net_worth(self):
         return self.sum_assets() - self.sum_liabilities()
 
+    # returns True if you're in debt
+    def is_in_debt(self):
+        return self.net_worth() < 0
+
     # adds an asset to the instance array
+    # returns net assets
     def add_asset(self, balance, interest_rate, name, category):
         new_asset = AssetLiability(balance, interest_rate, name, category)
         self.assets.append(new_asset)
+        return self.sum_assets()
 
     # adds a liability to the instance array
+    # returns net liabilities
     def add_liability(self, balance, interest_rate, name, category):
         new_liability = AssetLiability(balance, interest_rate, name, category)
         self.liabilities.append(new_liability)
+        return self.sum_liabilities()
