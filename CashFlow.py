@@ -1,5 +1,6 @@
 
 
+# general cash flow used for budgeting
 class CashFlow:
 
     def __init__(self, amount, name, category, is_recurring):

@@ -5,7 +5,7 @@ class MonthlyBudget:
 
     def __init__(self, month, year, recurring_income, recurring_expenses):
         self.income = 0
-        self.expenses = 0
+        self.outcome = 0
         self.expense_list = []
         self.income_list = []
         self.recurring_income = recurring_income
@@ -17,11 +17,17 @@ class MonthlyBudget:
     def sum_income(self):
         for cash_flow in self.income_list:
             self.income += cash_flow.amount
+        return self.income
 
     # sums expenses in the expense list
     def sum_expenses(self):
         for cash_flow in self.expense_list:
-            self.expenses += cash_flow.amount
+            self.outcome += cash_flow.amount
+        return self.outcome
+
+    # returns net cash flow
+    def net_cash_flow(self):
+        return self.income - self.outcome
 
     # adds new cash flow to income list, sums income, if recurring adds to recurring list
     def add_income(self, new_amount, new_name, new_category, is_recurring):
