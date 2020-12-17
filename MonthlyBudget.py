@@ -3,6 +3,7 @@ from CashFlow import CashFlow
 
 class MonthlyBudget:
 
+    # not sure if income should be pre or post tax
     def __init__(self, month, year, fixed_income, fixed_expenses):
         self.income = 0
         self.outcome = 0
@@ -15,12 +16,14 @@ class MonthlyBudget:
 
     # sums income in income list
     def sum_income(self):
+        self.income = 0
         for cash_flow in self.income_list:
             self.income += cash_flow.amount
         return self.income
 
     # sums expenses in the expense list
     def sum_expenses(self):
+        self.outcome = 0
         for cash_flow in self.expense_list:
             self.outcome += cash_flow.amount
         return self.outcome

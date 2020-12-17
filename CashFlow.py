@@ -8,4 +8,3 @@ class CashFlow:
         self.name = name
         self.category = category
         self.is_fixed = is_fixed
-

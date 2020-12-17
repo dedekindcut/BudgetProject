@@ -1,5 +1,6 @@
 from MonthlyBudget import MonthlyBudget
 from MonthlyNetWorth import MonthlyNetWorth
+from Analysis import Analysis
 
 
 def main():
@@ -19,6 +20,12 @@ def main():
     networth1.add_liability(100, 14, 'amex', 'credit card debt')
     print(networth1.net_worth())
     print(round(networth1.assets[0].future_value(10)))
+
+    b_array = [budget1]
+    n_array = [networth1]
+    analysis = Analysis(b_array, n_array)
+    print(analysis.average_income())
+    print(analysis.average_outcome())
 
 
 if __name__ == '__main__':
